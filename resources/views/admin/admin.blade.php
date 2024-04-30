@@ -27,19 +27,19 @@
                         <tbody>
                             @foreach ($products as $product)
                                 <tr>
-                                    <td>{{ $product->name }}</td> <!-- Sesuaikan dengan nama kolom di database untuk nama menu -->
+                                    <td>{{ $product->name }}</td>
                                     <td>{{ $product->description }}</td>
-                                    <td>Rp {{ number_format($product->price, 0, ',', '.') }}</td> <!-- Format harga menjadi format rupiah -->
+                                    <td>Rp {{ number_format($product->price, 0, ',', '.') }}</td>
                                     <td class="d-flex gap-2 justify-content-center align-items-center">
                                         <form action="{{ route('admin.deleteProduct', ['id' => $product->id]) }}" method="POST">
                                             @csrf
-                                            @method('DELETE') <!-- Add this line to specify the DELETE method -->
+                                            @method('DELETE')
                                             <input type="hidden" value="{{$product->id}}" name="product_id">
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
                                     <form action="{{ route('admin.getProductForUpdate', ['id' => $product->id]) }}">
                                         @csrf
-                                        @method('PUT') <!-- Add this line to specify the PUT method -->
+                                        @method('PUT')
                                         <button type="submit" class="btn btn-primary">Update</button>
                                     </form>
                                     </td>

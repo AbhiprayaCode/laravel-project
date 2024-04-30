@@ -28,9 +28,9 @@
                         <tbody>
                             @foreach ($products as $product)
                                 <tr>
-                                    <td>{{ $product->name }}</td> <!-- Sesuaikan dengan nama kolom di database untuk nama menu -->
+                                    <td>{{ $product->name }}</td>
                                     <td>{{ $product->description }}</td>
-                                    <td>Rp {{ number_format($product->price, 0, ',', '.') }}</td> <!-- Format harga menjadi format rupiah -->
+                                    <td>Rp {{ number_format($product->price, 0, ',', '.') }}</td>
                                     <td>
                                         <form action="{{ route('cart.add', ['id' => $product->id]) }}" method="POST">
                                             @csrf
